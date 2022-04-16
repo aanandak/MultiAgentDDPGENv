@@ -1,0 +1,3 @@
+gym
+numpy-stl
+tensorflow<2.0,>=1.8.0
