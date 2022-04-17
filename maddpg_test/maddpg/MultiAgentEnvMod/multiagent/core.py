@@ -72,7 +72,7 @@ class Agent(Entity):
         # communication noise amount
         self.c_noise = None
         # control range
-        self.u_range = 1.0
+        self.u_range = 7.0
         # state
         self.state = AgentState()
         # action
