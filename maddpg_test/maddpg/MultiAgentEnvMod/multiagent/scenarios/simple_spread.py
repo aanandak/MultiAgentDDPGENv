@@ -80,9 +80,10 @@ class Scenario(BaseScenario):
         for a in range(len(world.agents)):
             dists = np.sqrt(np.sum(np.square(world.agents[a].state.p_pos - world.landmarks[a].state.p_pos)))
             if dists < world.agents[a].size:
-                rew += 10
+                rew += 1
             else:
-                rew -= min([dists, 1])
+#                 rew -= min([dists, 1])
+                rew -= 0.1
 
         
         # for l in world.landmarks:
