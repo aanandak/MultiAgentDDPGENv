@@ -82,7 +82,7 @@ class Scenario(BaseScenario):
             if dists < world.agents[a].size:
                 rew += 10
             else:
-                rew -= 0.1
+                rew -= min([dists, 1])
 
         
         # for l in world.landmarks:
