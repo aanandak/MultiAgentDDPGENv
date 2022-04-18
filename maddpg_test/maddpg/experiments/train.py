@@ -105,11 +105,18 @@ def train(arglist):
         episode_step = 0
         train_step = 0
         t_start = time.time()
+        start_steps = 10000
 
         print('Starting iterations...')
         while True:
-            # get action
-            action_n = [agent.action(obs) for agent, obs in zip(trainers,obs_n)]
+            if train_step > start_steps:
+                # get action
+                action_n = [agent.action(obs) for agent, obs in zip(trainers,obs_n)]
+            else:
+                action_n = np.zeros(shape=(2, 2))
+                for i in range(2):
+                    a0 = env.action_space[i].sample()
+                    action_n[i] = a0
             # environment step
             new_obs_n, rew_n, done_n, info_n = env.step(action_n)
             episode_step += 1
